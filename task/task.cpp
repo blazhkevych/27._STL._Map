@@ -19,15 +19,6 @@ map*/
 
 using namespace std;
 
-//void FrequentlyOccurringWord (const map<string, int>& Words)
-//{
-//	map<string, int>::iterator result;
-//
-//	result = std::max_element(Words.begin(), Words.end(),
-//		[](const pair<string, int>& a, const pair<string, int>& b)->bool { return a.second < b.second; });
-//	cout << result->first << " - " << result->second << "\n";
-//}
-
 int main()
 {
 	SetConsoleCP(1251);
@@ -43,11 +34,11 @@ int main()
 	записанных различными функциями вывода, в изображения, отображаемые в окне консоли.
 	*/
 
-	//cout << "Введите путь к файлу";
-	//string pathToFile;
-	//cin >> pathToFile;
+	cout << "Введите путь к файлу: ";
+	string pathToFile;
+	cin >> pathToFile;
 
-	ifstream f_read("1.txt", ios::in);
+	ifstream f_read(pathToFile, ios::in);
 
 	if (!f_read.is_open()) // Если открытие файла завершилось неудачей - выходим.
 	{
@@ -126,6 +117,7 @@ int main()
 			cout << "Главное меню."
 				"\n\t2. Вывод информации о наиболее часто встречающемся слове."
 				<< endl;
+
 			result = max_element(Words.begin(), Words.end(),
 				[](const pair<string, int>& a, const pair<string, int>& b)->bool { return a.second < b.second; });
 			cout << result->first << " - " << result->second << "\n";
@@ -160,12 +152,12 @@ int main()
 
 			out.close(); // Закрываем файловый поток.
 
+			cout << "\nГотово !" << endl;
 			return 0;
 		}
 		default:
 			cout << "Ошибка ввода !" << endl;
 			break;
-
 		}
 	}
 }
